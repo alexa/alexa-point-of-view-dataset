@@ -1,0 +1,84 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <crowd-instructions link-text="View instructions" link-type="button">
+        <short-summary>
+            <p>Collecting 4 sample dialogs of you telling a virtual assistant to relay messages with statements, and corresponding virtual assistant's converted messages to the recipient.</p>
+        </short-summary>
+
+        <detailed-instructions>
+            <h4>First, provide reminders to relay to a recipient, via virtual assistant, such as:</h4>
+              <p>Tell John I brought the cookie dough. (1)</p>
+              <p>Let Alice know she's getting a free dinner tomorrow. (2)</p>
+              <p>Tell Niels this is the last time to catch her perform. (3)</p>
+            <h4>Then, provide the virtual assistant's relayed message to John, from the perspective of the virtual assistant.  Assuming your name is David, the above sentences would be converted as following:</h4>
+              <p>Virtual Assistant converted output of (1): Hi John, David is telling you they brought the cookie dough. </p>
+              <p>Virtual Assistant converted output of (2): Alice, David wants you to know you're getting a free dinner tomorrow.</p>
+              <p>Virtual Assistant converted output of (3): Hi Niels, David says this is the last time to catch her perform.</p>
+            
+        </p>
+        </detailed-instructions>
+    </crowd-instructions>
+    
+    <p>Provide 4 dialogs of you sending a message with statements to a recipient via virtual assistant, and corresponding virtual assistant's converted messages to the recipient.</p>
+    
+    <h3>Statements </h3>
+    are sentences without questions.  They provide information to a recipient. Some examples are given below.
+        <p>- there are some bugs in florida. </p>
+        <p>- i am coming home for dinner.</p>
+        <p>- i'm never late. </p>
+    <br />
+    <h3>Here are some examples of how these messages are converted via virtual assistant to relay to a messenger.</h3>
+    <p><strong>Example 1 </strong></p>
+    <p>You/Sender (Roman):  can you tell john there are no more rooms left. </p>
+    <p>Virtual Assistant (Variation 1): hey john, roman says there are no more rooms left.</p>
+    <p>Virtual Assistant (Variation 2): roman wants you to know there are no more rooms left.</p>
+    <p>Virtual Assistant (Variation 3): hi john, roman would like you to know there are no more rooms left.</p>
+    <p>Virtual Assistant (Variation 4): hey john, roman would like to say there are no more rooms left.</p>
+    <br />
+    <p><strong>Example 2 </strong></p>
+    <p>You/Sender (Maurine): can you tell jane justin is out next week? </p>
+    <p>Virtual Assistant (Variation 1): hi jane, maurine wants you to know justin is out next week.</p>
+    <p>Virtual Assistant (Variation 2): maurine would like you to know justin is out next week.</p>
+    <p>Virtual Assistant (Variation 3): hi jane, maurine says justin is out next week.</p>
+    <p>Virtual Assistant (Variation 4): hey jane, maurine would like to say justin is out next week.</p>
+    <br />
+    <p><strong>Example 3 - Conversion with Gender Neutral Pronoun</strong></p>
+    <p>You/Sender (David): text norah <b>i</b>'m picking her up from the airport.</p>
+    <p>Virtual Assistant: hi norah, david says <b>they</b>'re picking you up from the airport.</p>
+    <p style="margin-left: 40px">* Note: the pronoun <b>i</b> was converted to <b>they</b>.  Do not assume genders in conversions, and assume gender neutral "they."</p>
+    <br />
+    <br />
+    <br />
+    <h3>Write all your responses in the form below.</h3>
+    Please spell out numbers and do not use special characters; only use lower-case alphabet [a-z] and punctuation.  Assume gender neutral pronouns in terms of converted utterances (Example 3).  Please use a few variations in your conversions.
+    <h4>Example 1</h4>
+    <crowd-input name="SCN-stmt-1" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-stmt-1" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-stmt-1" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-stmt-1" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 2</h4>
+    <crowd-input name="SCN-stmt-2" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-stmt-2" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-stmt-2" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-stmt-2" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 3</h4>
+    <crowd-input name="SCN-stmt-3" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-stmt-3" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-stmt-3" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-stmt-3" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 4</h4>
+    <crowd-input name="SCN-stmt-4" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-stmt-4" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-stmt-4" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-stmt-4" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+</crowd-form>

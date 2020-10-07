@@ -1,0 +1,86 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <crowd-instructions link-text="View instructions" link-type="button">
+        <short-summary>
+            <p>Collecting 4 sample dialogs of you asking a virtual assistant to relay general inquiries related to subjects, and a following virtual assistant's converted question to the recipient.</p>
+        </short-summary>
+
+        <detailed-instructions>
+            <h4>First, provide a general inquiry to relay to a friend, John, via virtual assistant, such as:</h4>
+              <p>Ask John about lord of the rings sequal (1)</p>
+              <p>Ask John about the rent (2)</p>
+              <p>Ask John on his paper that's due tomorrow (3)</p>
+            <h4>Then, provide the virtual assistant's relayed message to John, from the perspective of the virtual assistant.  Assuming your name is David, the above sentences would be converted as following:</h4>
+              <p>Virtual Assistant converted output of (1): David, John wants to know about lord of the rings sequal</p>
+              <p>Virtual Assistant converted output of (2): Hi David, John is asking about the rent.</p>
+              <p>Virtual Assistant converted output of (3): Hi David, John would like to know about your paper that's due tomorrow.</p>
+            
+        </p>
+        </detailed-instructions>
+    </crowd-instructions>
+
+    <p>Provide 4 dialogs of you sending a message with a general inquiry to a recipient via virtual assistant, and corresponding virtual assistant's converted messages to the recipient.</p>
+    
+    <h3>General inquiries are general questions on subjects related to specific information or general opinion.  Some examples are shown below.</h3>
+        <p>- General question related to information or request for information:  Ask Stacy about the mattress in front of her house.  (ask + someone + about)</p>
+        <p>- General question related about a subject:  Ask Stacy on jane austin.  (ask + someone + on)</p>
+    </br>
+
+
+    <h3>Here are some examples of how these messages are converted via virtual assistant to relay to a messenger.  Note that there can be some variations.</h3>
+    <p><strong>Example 1 </strong></p>
+    <p>You/Sender (Roman):  ask jane about her upcoming novel. </p>
+    <p>Virtual Assistant 1: hey jane, roman wants to know more about your upcoming novel.</p>
+    <p>Virtual Assistant 2: hey jane, roman would like to know about your upcoming novel.</p>
+    <p>Virtual Assistant 3: hey jane, roman is asking about your upcoming novel.</p>
+
+    <p><strong>Example 2 </strong></p>
+    <p>You/Sender (Maurine): please inquire nick about his pasta recipe. </p>
+    <p>Virtual Assistant: hi nick, maurine wants to know about your pasta recipe.</p>
+    <p>Virtual Assistant: hi nick, maurine would like to know about your pasta recipe.</p>
+    <p>Virtual Assistant: hi nick, maurine is asking about your pasta recipe.</p>
+
+    <p><strong>Example 3 </strong></p>
+    <p>You/Sender (David): can you ask john about the extra key for <b>me</b>? </p>
+    <p>Virtual Assistant: hi john, david is asking you about the extra key for <b>them</b>.</p>
+    <p style="margin-left: 40px">* Note: the pronoun <b>me</b> was converted to <b>them</b>.  Do not assume genders in conversions, and assume gender neutral "they."</p>
+
+    </br>
+    </br>
+    </br>
+    
+    <p>Write all your responses in lower-case.  Please spell out numbers and do not use special characters; only use alphabets [a-z] and punctuation.  Also, assume gender neutral pronouns in terms of converted utterances (Example 3).</p>
+
+
+    <h4>Example 1</h4>
+    <crowd-input name="SCN-ASKIN-1" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-ASKIN-1" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-ASKIN-1" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-ASKIN-1" placeholder="Provide a converted message to the same recipient, but converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 2</h4>
+    <crowd-input name="SCN-ASKIN-2" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-ASKIN-2" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-ASKIN-2" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-ASKIN-2" placeholder="Provide a converted message to the same recipient, but converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 3</h4>
+    <crowd-input name="SCN-ASKIN-3" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-ASKIN-3" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-ASKIN-3" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-ASKIN-3" placeholder="Provide a converted message to the same recipient, but converted in the perspective of the virtual assistant." required></crowd-input>
+
+    <h4>Example 4</h4>
+    <crowd-input name="SCN-ASKIN-4" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-ASKIN-4" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-ASKIN-4" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-ASKIN-4" placeholder="Provide a converted message to the same recipient, but converted in the perspective of the virtual assistant." required></crowd-input>
+    
+</crowd-form>

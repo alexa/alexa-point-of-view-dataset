@@ -1,0 +1,85 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <crowd-instructions link-text="View instructions" link-type="button">
+        <short-summary>
+            <p>Collecting 3 sample dialogs of you asking a virtual assistant to relay a request question, and a following virtual assistant's converted question to the recipient.</p>
+        </short-summary>
+
+        <detailed-instructions>
+            <h4>First, provide WH-questions (When, What, Where, Who, Which, Why, Whose, Whom etc.) to relay to a friend, John, via virtual assistant, such as:</h4>
+              <p>Ask John, what time is the meeting for next monday? (1)</p>
+              <p>Ask John when the movie starts. (2)</p>
+              <p>Ask John why he left home so late. (3)</p>
+            <h4>Then, provide the virtual assistant's relayed message to John, from the perspective of the virtual assistant.  Assuming your name is David, the above sentences would be converted as following:</h4>
+              <p>Virtual Assistant converted output of (1): David, John wants to know, what time is the meeting for next monday?</p>
+              <p>Virtual Assistant converted output of (2): Hi David, John asks when the movie starts.</p>
+              <p>Virtual Assistant converted output of (3): Hi David, John asks why you left the home so late.</p>
+            
+        </p>
+        </detailed-instructions>
+    </crowd-instructions>
+
+    <p>Provide 3 dialogs of you sending a message with a WH-question (When, What, Where, Who, Which, Why, Whose, Whom etc.) to a recipient via virtual assistant, and corresponding virtual assistant's converted messages to the recipient.</p>
+    
+    <h3>WH-questions</h3>
+    can either be direct or indirect questions that sender requests an action from the recipient.  Below are some examples for each.
+    Direct Questions are still questions when standing alone; 
+    in contrast, indirect questions don’t make much sense/are not questions/are ungrammatical if you strip off their surrounding text.
+    <ul>
+        <li>direct WH-question: Ask John, whose line is it anyway? (the message itself contains questions that are directly identifiable from the sentence with no manipulation.)</p>
+        <li>indirect WH-question: Ask John when he can make it back. (the utterance itself is not a question, but it contains a question.)
+        <p>Format can often look like: <b>(Wh-words) + (send, sender pronoun, they) + (helper verb- can, could would should, etc.) + (message containing action or information)</b></p>
+    </ul>
+    <br />
+    <h3>Here are some examples of how these messages are converted via virtual assistant to relay to a messenger.
+    Note that there could be many variations of conversions, and here are some sample output with acceptable variations for conversion.</h3>
+    <p><strong>Example 1 - Direct WH question</strong></p>
+    <p>You/Sender (Roman):  can you ask jane when do you want to get dinner? </p>
+    <p>Virtual Assistant (Variation 1): hey jane, roman is wondering when you want to get dinner.</p>
+    <p>Virtual Assistant (Variation 2): hi jane, roman would like to know when you want to get dinner.</p>
+    <p>Virtual Assistant (Variation 3): hi jane, roman is asking when you want to get dinner.</p>
+    <p>Virtual Assistant (Variation 4): hey jane, roman wants to ask when you want to get dinner.</p>
+    <br />
+    <p><strong>Example 2 - Indirect WH question</strong></p>
+    <p>You/Sender (Maurine): please ask nichole why she hasn't made copies for the meeting. </p>
+    <p>Virtual Assistant: hi nichole, maurine wants to know why you haven't made copies for the meeting.</p>
+    <br />
+    <p><strong>Example 3 - Direct WH question</strong></p>
+    <p>You/Sender (David): could you ask john, when can you make it this evening? </p>
+    <p>Virtual Assistant: Hi john, david is asking when can you make it this evening?</p>
+    <br />
+    <p><strong>Example 4 - Conversion with Gender Neutral Pronoun</strong></p>
+    <p>You/Sender (Alex): ask shawn why am <b>i</b> like this.</p>
+    <p>Virtual Assistant: hi shawn, alex asks why are <b>they</b> like this.</p>
+    <p style="margin-left: 40px">* Note: the pronoun <b>i</b> was converted to <b>they</b>.  Do not assume genders in conversions, and assume gender neutral "they."</p>
+    <br />
+    <br />
+    <br />
+    <h3>Write all your responses in the form below.</h3>
+    Please spell out numbers and do not use special characters; only use lower-case alphabet [a-z] and punctuation.  Assume gender neutral pronouns in terms of converted utterances (Example 4).  Please use a few variations in your conversions.
+
+    <h4>Example 1 - Direct WH-question</h4>
+    <crowd-input name="SCN-askwh-1" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-askwh-1" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-askwh-1" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-askwh-1" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 2 - Indirect WH-question</h4>
+    <crowd-input name="SCN-askwh-2" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-askwh-2" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-askwh-2" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-askwh-2" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 3 - Either Direct or Indirect WH-Question</h4>
+    <crowd-input name="SCN-askwh-3" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-askwh-3" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-askwh-3" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-askwh-3" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+</crowd-form>

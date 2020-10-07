@@ -1,0 +1,108 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <crowd-instructions link-text="View instructions" link-type="button">
+        <short-summary>
+            <p>Collecting 3 sample dialogs of you asking a virtual assistant to relay a request question, and a following virtual assistant's converted question to the recipient.</p>
+        </short-summary>
+
+        <detailed-instructions>
+            <h4>First, provide request-type questions to relay to a friend, John, via virtual assistant, such as:</h4>
+              <p>Ask John, would he mind getting me some milk? (1)</p>
+              <p>Ask John if he could get going soon. (2)</p>
+              <p>Ask John to go for a walk before tomorrow's workout. (3)</p>
+            <h4>Then, provide the virtual assistant's relayed message to John, from the perspective of the virtual assistant.  Assuming your name is David, the above sentences would be converted as following:</h4>
+              <p>Virtual Assistant converted output of (1): Hi David, John asks, would you mind getting me some milk?</p>
+              <p>Virtual Assistant converted output of (2): David, John would like to know if you could get going soon.</p>
+              <p>Virtual Assistant converted output of (3): Hi David, John asks you to go for a walk before tomorrow's workout.</p>
+            
+        </p>
+        </detailed-instructions>
+    </crowd-instructions>
+
+    <p>Provide 4 dialogs of you sending a message with a request to a recipient via virtual assistant, and corresponding virtual assistant's converted messages to the recipient.</p>
+    
+    <h3>Requests are utterances that a sender requests an action from a recipient.  There are a few queue phrases and words associated with requests.
+    Below are some examples for each.</h3>
+        <ul>
+            <li><b>Ask (recipient) for (noun)</b> - ask jason for more snacks</li>
+            <li><b>Ask (recipient) to (noun or action)</b> - ask nate to do the dishes</li>
+            <li><b>Tell (recipient) to (noun or action)</b> - tell simi to get the plane tickets already</li>
+            <li><b>Invite (recipient) to (noun or action)</b> - invite nora to catch up with me at the reception</li>
+            <li><b>Invite (recipient) for (noun)</b> - invite nora for coffee</li>
+        </ul>
+
+    <h3>Here are some examples of how these messages are converted via virtual assistant to relay to a messenger.  Note that there can be some variations and here are some acceptable examples.</h3>
+    <p><strong>Example 1 - ask to</strong></p>
+    <p>You/Sender (isabelle):  can you ask alex to pick up some ice cream on the way home? </p>
+    <p>Virtual Assistant (variation 1): hi alex, isabelle wants you to pick up some ice cream on the way home.</p>
+    <p>Virtual Assistant (variation 2): hi alex, isabelle is asking you to pick up some ice cream on the way home.</p>
+    <p>Virtual Assistant (variation 3): hey alex, isabelle is requesting you to pick up some ice cream on the way home.</p>
+    <p>Virtual Assistant (variation 4): hey alex, isabelle would like you to pick up some ice cream on the way home.</p>
+
+    <p><strong>Example 2 - ask for</strong></p>
+    <p>You/Sender (rachel): please ask my husband for coffee. </p>
+    <p>Virtual Assistant (variation 1): hi jonah, rachel is asking you for coffee.</p>
+    <p>Virtual Assistant (variation 2): hi jonah, rachel wants to ask for coffee.</p>
+    <p>Virtual Assistant (variation 3): hi jonah, rachel would like coffee.</p>
+    <p>Virtual Assistant (variation 4): hi jonah, rachel is requesting coffee.</p>
+
+    <p><strong>Example 3 - tell to</strong></p>
+    <p>You/Sender (David): tell nick to get there a little early</p>
+    <p>Virtual Assistant (variation 1): hey nick, david is telling you to get there a little early</p>
+    <p>Virtual Assistant (variation 2): hi nick, david would like you to get there a little early</p>
+    <p>Virtual Assistant (variation 3): hey nick, david wants you to get there a little early</p>
+    <p>Virtual Assistant (variation 4): hey nick, david is requesting you to get there a little early</p>
+    
+    <p><strong>Example 4 - invite to</strong></p>
+    <p>You/Sender (vera): please invite sam to go to the movies with me</p>
+    <p>Virtual Assistant (variation 1): hi sam, vera wants to invite you to go to the movies with them.</p>
+    <p>Virtual Assistant (variation 2): hey sam, vera invites you to go to the movies with them.</p>
+    <p>Virtual Assistant (variation 3): hey sam, vera would like to invite you to go to the movies with them.</p>
+    <p>Virtual Assistant (variation 4): hi sam, vera is inviting you to go to the movies with them.</p>
+
+    <p><strong>Example 5 - invite for</strong></p>
+    <p>You/Sender (ismail): please invite nora to <b>my</b> reception.</p>
+    <p>Virtual Assistant (variation 1): hi nora, ismail would like to invite you to <b>their</b> reception.</p>
+    <p>Virtual Assistant (variation 2): hey nora, ismail is inviting you to <b>their</b> reception.</p>
+    <p>Virtual Assistant (variation 3): hi nora, ismail wants you to come to <b>their</b> reception.</p>
+    <p>Virtual Assistant (variation 4): hi nora, ismail wants to invite you to <b>their</b> reception.</p>
+
+    <p>Provide 4 dialogs of you sending a message with a general inquiry to a recipient via virtual assistant, and corresponding virtual assistant's converted messages to the recipient.</p>
+
+    <h4>Example 1 - ask to</h4>
+    <crowd-input name="SCN-req-1" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-req-1" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-req-1" placeholder="Provide a message to relay to a recipient via virtual assistant." required></crowd-input>
+    <crowd-input name="VA-req-1" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 2 - ask for</h4>
+    <crowd-input name="SCN-req-2" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-req-2" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-req-2" placeholder="Provide a message to relay to a recipient via virtual assistant." required></crowd-input>
+    <crowd-input name="VA-req-2" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 3 - tell to</h4>
+    <crowd-input name="SCN-req-3" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-req-3" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-req-3" placeholder="Provide a message to relay to a recipient via virtual assistant." required></crowd-input>
+    <crowd-input name="VA-req-3" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 4 - invite to</h4>
+    <crowd-input name="SCN-req-4" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-req-4" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-req-4" placeholder="Provide a message to relay to a recipient via virtual assistant." required></crowd-input>
+    <crowd-input name="VA-req-4" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 5 - invite for</h4>
+    <crowd-input name="SCN-req-5" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-req-5" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-req-5" placeholder="Provide a message to relay to a recipient via virtual assistant." required></crowd-input>
+    <crowd-input name="VA-req-5" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+</crowd-form>

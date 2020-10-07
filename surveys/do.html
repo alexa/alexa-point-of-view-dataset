@@ -1,0 +1,130 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <crowd-instructions link-text="View instructions" link-type="button">
+        <short-summary>
+            <p>Collecting 3 sample dialogs of you asking a virtual assistant to relay a request question, and a following virtual assistant's converted question to the recipient.</p>
+        </short-summary>
+
+        <detailed-instructions>
+            <h4>First, provide do-questions or have-questions to relay to a friend, John, via virtual assistant, such as:</h4>
+              <p>ask john, do you want to get coffee? (1)</p>
+              <p>ask john did you get home okay yesterday? (2)</p>
+              <p>ask john does Jessica have any coffee makers? (3)</p>
+
+            <h4>Then, provide the virtual assistant's relayed message to John, from the perspective of the virtual assistant.  Assuming your name is David, the above sentences would be converted as following:</h4>
+              <p>Virtual Assistant converted output of (1): hey john, david wants to know if you want to get coffee</p>
+              <p>Virtual Assistant converted output of (2): greetings john, david would like to know if you got home okay</p>
+              <p>Virtual Assistant converted output of (3): hi john, david is asking does jessica have any coffee makers?</p>
+
+            
+        </p>
+        </detailed-instructions>
+    </crowd-instructions>
+
+    <p>Provide 6 dialogs of you sending a message with a do-question or have-question to a recipient via virtual assistant, and corresponding virtual assistant's converted messages to the recipient.</p>
+    
+    <h3>Questions involving "do" verbs</h3>
+    do-questions involve questions with variations on do-verbs with following gramatical structures.
+    <ul>
+        <li>do question: [do/does/did] + [subject] + [verb] + [object] </li>
+        <p>ex) ask john, <b>does jessica have a coffee machine?</b></p>
+
+        <li>do question with negation: [don't/doesn't/didn't/do not/does not/did not] + [subject] + [verb] + [object] </li>
+        <p>ex) ask john <b>didn't she have an appointment yesterday?</b></p>
+
+        <li>wh-do question: [what/where/who/whose/why/which/how] + [do/does/did] + [subject] + [verb] + [object]</li>
+        <p>ex) ask john <b>which did you like better?</b></p>
+
+        <li>wh-do question with negation: [what/where/who/whose/why/which/how] + [don't/doesn't/didn't/do not/does not/did not] + [verb] + [object]</li>
+        <p>ex) ask john <b>who didn't you like?</b></p>
+
+        <li>wh-object-do question: [what/where/who/whose/why/which/how] + [object] + [do/does/did] + [subject] + [verb]</li>
+        <p>ex) ask john <b>which team did she pick?</b></p>
+
+        <li>wh-object-do question with negation: [what/where/who/whose/why/which/how] + [object] + [don't/doesn't/didn't/do not/does not/did not] + [verb] + [object] </li>
+        <p>ex) ask john <b>what kind of food doesn't she like?</b></p>
+
+        
+    </ul>
+    <br />
+    <h3>Here are some examples of how these messages are converted via virtual assistant to relay to a messenger.
+    Note that there could be many variations of conversions, and here are some sample output with acceptable variations for conversion.  There are direct variation in which the conversion contains stand-alone questions.  On the other hand, there are indirect variations in which implicit, re-ordered questions.</h3>
+    <p><strong>Example 1 - Do question</strong></p>
+    <p>You/Sender (Roman): ask john, does jessica have a coffee machine? </p>
+    <p>Virtual Assistant (Direct variation): hi john, roman wants to know does jessica have a coffee machine?</p>
+    <p>Virtual Assistant (Indirect variation): hi john, roman wants to know if jessica has a coffee machine</p>
+    <br />
+    <p><strong>Example 2 - Do question with negation</strong></p>
+    <p>You/Sender (Maurine): ask john didn't she have an appointment yesterday? </p>
+    <p>Virtual Assistant (Direct variation): hi john, maurine is asking didn't she have an appointment yesterday?</p>
+    <p>Virtual Assistant (Indirect variation): hi john, maurine is asking if she didn't have an appointment yesterday.</p>
+    <br />
+    <p><strong>Example 3 - WH-Do question</strong></p>
+    <p>You/Sender (Alex): ask john which did you like better?</p>
+    <p>Virtual Assistant (Direct variation): hi john, alex is asking which did you like better?</p>
+    <p>Virtual Assistant (Indirect variation): hi john, alex wants to know which you liked better.</p>
+    <br />
+    <p><strong>Example 4 - WH-Do question with negation</strong></p>
+    <p>You/Sender (Nicole): ask john who didn't you like?</p>
+    <p>Virtual Assistant (Direct variation): hi john, nicole is asking who didn't you like?</p>
+    <p>Virtual Assistant (Indirect variation): hi john, nicole wants to know who you didn't like.</p>
+    <br />
+    <p><strong>Example 5 - WH-object-Do question </strong></p>
+    <p>You/Sender (Gabriel): ask john which team did she pick?</p>
+    <p>Virtual Assistant (Direct variation): hi john, gabriel is asking which team did she pick?</p>
+    <p>Virtual Assistant (Indirect variation): hi john, gabriel is asking which team she picked.</p>
+    <br />
+    <p><strong>Example 6 - WH-object-Do question with negation</strong></p>
+    <p>You/Sender (Mina): ask john what kind of food doesn't she like?</p>
+    <p>Virtual Assistant (Direct variation): hi john, mina is asking what kind of food doen't she like?</p>
+    <p>Virtual Assistant (Indirect variation): hi john, mina wants to know what kind of food she doesn't like.</p>
+    <br />
+    <br />
+    <br />
+    <h3>Write all your responses in the form below.</h3>
+    Please spell out numbers and do not use special characters; only use lower-case alphabet [a-z] and punctuation.  Please use a few variations in your conversions.
+
+    <h4>Example 1 - Do-question</h4>
+    <crowd-input name="SCN-do-1" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-do-1" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-do-1" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-do-1" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 2 - Do-question with negation</h4>
+    <crowd-input name="SCN-do-2" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-do-2" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-do-2" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-do-2" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 3 - WH-Do-question</h4>
+    <crowd-input name="SCN-do-3" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-do-3" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-do-3" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-do-3" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+
+    <h4>Example 4 - WH-Do-question with negation</h4>
+    <crowd-input name="SCN-do-4" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-do-4" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-do-4" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-do-4" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 5 - WH-object-Do-question</h4>
+    <crowd-input name="SCN-do-5" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-do-5" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-do-5" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-do-5" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+    
+    <h4>Example 6 - WH-object-Do-question with negation</h4>
+    <crowd-input name="SCN-do-6" placeholder="Provide a name of a sender" required></crowd-input>
+    <crowd-input name="CN-do-6" placeholder="Provide a name of a recipient" required></crowd-input>
+    <crowd-input name="SenderMessage-do-6" placeholder="Provide a message to relay to a recipient via Virtual Assistant." required></crowd-input>
+    <crowd-input name="VA-do-6" placeholder="Provide a converted message to the same recipient- converted in the perspective of the virtual assistant." required></crowd-input>
+
+</crowd-form>
