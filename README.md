@@ -54,10 +54,15 @@ For each output, 3 associates have evaluated faithfulness and naturalness, with 
 
 Then, this metric was converted to unnatural (1 or 2) or natural (3 or 4).
 
-analysis To-be-added (plots or table?)
-inter-annotator agreement: ~80%
-model eval results.
+### Brief Human Evaluation Results
 
+| Model | Annotator Agreement (Faithfulness) | Annotator Agreement (Naturalness) | Faithfulness Model Accuracy | Naturalness Model Accuracy |
+| --- | --- | --- | --- | --- |
+| CopyNet | 0.94 | 0.89 | 0.94 | 0.97 |
+| T5 | 0.86 | 0.88 | 0.98 | 0.98 |
+| Rule-based Model | 0.72 | 0.71 | 0.85 | 0.76 |
+
+As additional data, CopyNet's human evaluation results are included in `human-evaluation` folder.
 
 ## Citation 
 ```
