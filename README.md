@@ -66,11 +66,11 @@ As additional data, CopyNet's human evaluation results are included in `human-ev
 
 ## Citation 
 ```
-@inproceedings{Lee2020,
+@inproceedings{iglee2020,
   author={Isabelle G. Lee and Vera Zu and Sai Srujana Buddi and Dennis Liang and Purva Kulkarni and Jack Fitzgerald},
   title={{Converting the Point of View of Messages Spoken to Virtual Assistants}},
   year=2020,
-  booktitle={Proc. EMNLP 2020},
+  booktitle={Findings of EMNLP 2020},
   doi={to-be-added},
   url={to-be-added}
 }
