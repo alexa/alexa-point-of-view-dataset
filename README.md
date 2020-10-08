@@ -15,7 +15,7 @@ Our public release of the dataset contains parallel corpus of input and output u
 4. [Citation](#citation)
 5. [Acknowlegements](#acknowledgements)
 
-For more detailed explanation on the problem statement, the [Surveys](#surveys), or metrics introduced in [Human Evaluation](#human-evaluation), please refer to our [paper](ARXIV LINK TO BE ADDED). For future work involving this dataset, please refer to our licenses and code of conduct.
+For more detailed explanation on the problem statement, the [Surveys](#surveys), or metrics introduced in [Human Evaluation](#human-evaluation), please refer to our [paper](https://arxiv.org/abs/2010.02600). For future work involving this dataset, please refer to our licenses and code of conduct.
 
 
 ## Data 
