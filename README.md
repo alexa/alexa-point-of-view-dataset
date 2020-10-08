@@ -83,3 +83,6 @@ Lee, I.G., et al. "Converting the Point of View of Messages Spoken to Virtual As
 ## Acknowledgements 
 We'd like to thank Steven Spielberg P. for coordinating our efforts and for early contribution, and we'd like to thank Adrien Carre and Minh Nguyen on coordinating with associates for the dataset and human evaluation of model output.
 
+
+## License
+Under CDLA-Sharing 1.0 License
